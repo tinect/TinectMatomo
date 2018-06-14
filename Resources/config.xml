@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+
+        <element required="true" type="text" scope="shop">
+            <name>matomopath</name>
+            <label>Path to Matomo-Installation</label>
+            <label lang="de">Pfad zur Matomo-Installation</label>
+            <description>f.e. https://matomo.org/</description>
+            <description lang="de">z.B. https://matomo.org</description>
+        </element>
+
+        <element required="true" type="text" scope="shop">
+            <name>jspath</name>
+            <label>Relative Path to piwik.js</label>
+            <label lang="de">Relativer Pfad zur piwik.js</label>
+            <value>piwik.js</value>
+            <description>Please edit if you use proxy or something else which makes the file located to another address. f.e. proxy-analytics/js</description>
+        </element>
+
+        <element required="true" type="text" scope="shop">
+            <name>phppath</name>
+            <label>Relative Path to piwik.php</label>
+            <label lang="de">Relativer Pfad zur piwik.php</label>
+            <value>piwik.php</value>
+            <description>Please edit if you use proxy or something else which makes the file located to another address. f.e. proxy-analytics/php</description>
+        </element>
+
+        <element required="true" type="text" scope="shop">
+            <name>siteid</name>
+            <label>Site-ID</label>
+        </element>
+
+        <element required="true" type="boolean" scope="shop">
+            <name>ecommerce</name>
+            <label>E-Commerce</label>
+            <value>0</value>
+        </element>
+
+    </elements>
+</config>
