@@ -1,6 +1,6 @@
 {extends file='parent:frontend/index/index.tpl'}
 
-{block name="frontend_index_header_javascript_jquery"}
+{block name="frontend_index_header_javascript_tracking"}
     {$smarty.block.parent}
     <script async>
 
@@ -78,21 +78,20 @@
         *}
         {/block}
 
+        _paq.push(['setTrackerUrl', '{$TinectMatomo.matomopath}/{$TinectMatomo.phppath}']);
+        _paq.push(['setSiteId', '{$TinectMatomo.siteid}']);
 
-        {*
-        TODO: check if it can be compressed
-        *}
-        (function () {
-            var u = "{$TinectMatomo.matomopath}";
-            _paq.push(['setTrackerUrl', u + '/{$TinectMatomo.phppath}']);
-            _paq.push(['setSiteId', '{$TinectMatomo.siteid}']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript';
-            g.async = true;
-            g.defer = true;
-            g.src = u + '/{$TinectMatomo.jspath}';
-            s.parentNode.insertBefore(g, s);
-        })();
+        {if !$TinectMatomo.compilejs}
+            (function () {
+
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.type = 'text/javascript';
+                g.async = true;
+                g.defer = true;
+                g.src = '{$TinectMatomo.matomopath}/{$TinectMatomo.jspath}';
+                s.parentNode.insertBefore(g, s);
+            })();
+        {/if}
 
 
     </script>

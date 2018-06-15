@@ -38,5 +38,18 @@
             <value>0</value>
         </element>
 
+        <element required="true" type="boolean" scope="locale">
+            <name>compilejs</name>
+            <label>Compile JS into Theme-JS</label>
+            <label lang="de">Kompiliere JS ins Theme-JS</label>
+            <description>Instead of adding an additional JS-Load in Shop</description>
+            <value>1</value>
+        </element>
+
+        <element type="text" scope="shop">
+            <name>apitoken</name>
+            <label>API-Token</label>
+        </element>
+
     </elements>
 </config>
