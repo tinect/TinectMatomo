@@ -10,6 +10,7 @@ This plugin for Shopware connects your shop to Matomo (formerly Piwik).
 - Tracking of detail pages
 - Tracking of categories
 - option to have js compiled into theme-javascript
+- use block-name frontend_tinectmatomno_paq in your index/index.tpl to extend "_paq"-variable
 
 
 Thanks to SwagPiwik for initial work :-)

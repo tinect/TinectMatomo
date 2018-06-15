@@ -68,15 +68,15 @@
             {/if}
         {/if}
 
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-
-
         {block name="frontend_tinectmatomno_paq"}
         {*
         Use this block to push data to _paq
         *}
         {/block}
+
+
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
 
         _paq.push(['setTrackerUrl', '{$TinectMatomo.matomopath}/{$TinectMatomo.phppath}']);
         _paq.push(['setSiteId', '{$TinectMatomo.siteid}']);
