@@ -1,4 +1,4 @@
-# TinectSwagMatomo
+# TinectMatomo
 Currently in delopment
 
 ## Description
