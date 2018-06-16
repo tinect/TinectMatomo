@@ -43,10 +43,7 @@ class TinectMatomo extends Plugin
         if ($config['compilejs']) {
             $jsPath = $this->container->get('kernel')->getCacheDir() . '/' . 'matomo.js';
 
-            file_put_contents(
-                $jsPath,
-                file_get_contents($config['matomopath'] . '/' . $config['jspath'])
-            );
+            copy($config['matomopath'] . '/' . $config['jspath'], $jsPath);
 
             return new ArrayCollection(array(
                 $jsPath
