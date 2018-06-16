@@ -23,13 +23,11 @@ class TinectMatomo extends Plugin
 
     public function install(InstallContext $context)
     {
-
     }
 
     public static function getSubscribedEvents()
     {
         return [
-
             'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onFrontendDispatch',
             'Theme_Compiler_Collect_Plugin_Javascript' => 'onCollectJavascriptFiles'
         ];
@@ -39,12 +37,14 @@ class TinectMatomo extends Plugin
     {
         $config = $this->container->get('shopware.plugin.config_reader')->getByPluginName(
             $this->getName(),
-            $args->get('shop'));
+            $args->get('shop')
+        );
 
         if ($config['compilejs']) {
             $jsPath = $this->container->get('kernel')->getCacheDir() . '/' . 'matomo.js';
 
-            file_put_contents($jsPath,
+            file_put_contents(
+                $jsPath,
                 file_get_contents($config['matomopath'] . '/' . $config['jspath'])
             );
 
@@ -61,13 +61,5 @@ class TinectMatomo extends Plugin
         $subject = $args->getSubject();
 
         $subject->View()->addTemplateDir($this->getPath() . '/Resources/Views/');
-        $subject->View()->assign(
-            'TinectMatomo',
-            $this->container->get('shopware.plugin.cached_config_reader')->getByPluginName($this->getName(),
-                $this->container->get('Shop'))
-        );
     }
-
 }
-
-?>
