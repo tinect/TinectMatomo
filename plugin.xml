@@ -10,9 +10,42 @@
     <link>https://github.com/tinect/TinectMatomo</link>
     <author>tinect</author>
     <compatibility minVersion="5.2.0" />
-	
+
 	<description><![CDATA[
 
+<p>This plugin for Shopware connects your shop to Matomo (formerly Piwik).</p>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li>General tracking statistics (hits, visitors, etc.)</li>
+
+<li>Tracking of orders</li>
+
+<li>Tracking of detail pages</li>
+
+<li>Tracking of categories</li>
+
+<li>option to have js compiled into theme-javascript</li>
+
+<li>use block-name frontend_tinectmatomno_paq in your index/index.tpl to extend "_paq"-variable</li>
+</ul>
+
+<h3 id="plannedfeatures">Planned Features</h3>
+
+<ul>
+<li>Tag-Manager</li>
+
+<li>Add Events</li>
+
+<li>...idea?</li>
+</ul>
+
+<p>Thanks to SwagPiwik for initial work :-)</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Feel free to fork and send <a href="https://github.com/tinect/TinectMatomo" target="_blank">pull requests</a>!</p>
         ]]>
     </description>
 

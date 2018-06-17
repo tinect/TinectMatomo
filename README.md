@@ -1,7 +1,5 @@
 # TinectMatomo
 
-Currently in delopment
-
 ## Description
 
 This plugin for Shopware connects your shop to Matomo (formerly Piwik).
@@ -25,7 +23,7 @@ Thanks to SwagPiwik for initial work :-)
 
 ## Contributing
 
-Feel free to fork and send pull requests!
+Feel free to fork and send [pull requests](https://github.com/tinect/TinectMatomo)!
 
 
 ## Licence
