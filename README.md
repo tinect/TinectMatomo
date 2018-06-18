@@ -21,6 +21,11 @@ This plugin for Shopware connects your shop to Matomo (formerly Piwik).
 
 Thanks to SwagPiwik for initial work :-)
 
+## Zip-Installation
+
+* Download the [latest plugin version](https://github.com/tinect/TinectMatomo/releases/latest/)
+* Upload and install plugin using Plugin Manager
+
 ## Contributing
 
 Feel free to fork and send [pull requests](https://github.com/tinect/TinectMatomo)!
