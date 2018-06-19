@@ -101,7 +101,7 @@
                     'trackEcommerceOrder',
                     '{$sOrderNumber}',
                     '{$grandTotal|round:2}',
-                    '{$sAmountsubtotal|round:2}',
+                    '{$subTotal|round:2}',
                     '{$tax|round:2}',
                     '{$sShippingcosts|replace:',':'.'|round:2}',
                     false
