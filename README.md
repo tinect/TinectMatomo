@@ -26,7 +26,6 @@ This plugin for Shopware connects your shop to Matomo (formerly Piwik).
 - Add Events
 - ...idea?
 
-Thanks to SwagPiwik for initial work :-)
 
 ## Zip-Installation
 
@@ -41,3 +40,4 @@ Feel free to fork and send [pull requests](https://github.com/tinect/TinectMatom
 ## Licence
 
 This project uses the [MIT License](LICENCE.md).
+Thanks to SwagPiwik for initial work :-)
