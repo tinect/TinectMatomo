@@ -1,0 +1,13 @@
+{
+    "name": "tinect/matomo",
+    "keywords": ["shopware", "tracking", "matomo"],
+    "description": "using matomo-tracking in shopware",
+    "license": "MIT",
+    "type": "shopware-plugin",
+    "extra": {
+        "installer-name": "TinectMatomo"
+    },
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
