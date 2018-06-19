@@ -45,15 +45,52 @@
                 {assign var="sAmountshipping1" value=$sShippingcosts|replace:",":"."}
                 {assign var="sAmountsubtotal" value=$sAmountTax-$sAmountshipping1}
 
-                {foreach from=$sBasket.content item=sBasketItem}
+                {assign var="ordernumbers" value=[]}
+                {assign var="orderpositions" value=[]}
+
+                {*
+                This is a fix to manage duplicated ordernumbers in one order - used f.e. in many B2B-Shops
+                It will be combined into one product!
+                *}
+                {foreach $sBasket.content as $sBasketItem}
+
+                    {assign var="ordernumber" value={$sBasketItem.ordernumber|escape:'javascript'}}
+
+                    {if $orderpositions[{$ordernumber}].qty > 0}
+                        {assign var="newqty" value=($orderpositions[{$ordernumber}].qty + $sBasketItem.quantity)}
+
+                        {$orderpositions[{$ordernumber}].price =
+                            (
+                                ($orderpositions[{$ordernumber}].qty * $orderpositions[{$ordernumber}].price)
+                                +
+                                ($sBasketItem.priceNumeric * $sBasketItem.quantity)
+                            ) / $newqty
+                        }
+                        {$orderpositions[{$ordernumber}].qty = $newqty}
+                    {else}
+                        {$orderpositions[{$ordernumber}] =
+                            [
+                                'name' => {$sBasketItem.articlename|escape:'javascript'},
+                                'price' => {$sBasketItem.priceNumeric|round:2},
+                                'qty' => {$sBasketItem.quantity}
+                            ]
+                        }
+                    {/if}
+                {/foreach}
+
+                {foreach $orderpositions as $k=>$item}
+
                     _paq.push([
                         'addEcommerceItem',
-                        '{$sBasketItem.ordernumber|escape:'javascript'}',
-                        '{$sBasketItem.articlename|escape:'javascript'}',
+                        '{$k}',
+                        '{$item.name}',
                         ' ',
-                        '{$sBasketItem.priceNumeric|round:2}',
-                        '{$sBasketItem.quantity}'
+                        '{$item.price|round:2}',
+                        '{$item.qty}'
                     ]);
+
+                    {$ordernumbers[] = {$sBasketItem.ordernumber|escape:'javascript'}}
+
                 {/foreach}
 
                 _paq.push([
