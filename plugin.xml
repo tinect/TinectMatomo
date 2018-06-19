@@ -4,7 +4,7 @@
 
     <label>TinectMatomo</label>
 
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <copyright>(c) by tinect</copyright>
     <license>MIT</license>
     <link>https://github.com/tinect/TinectMatomo</link>
@@ -29,6 +29,11 @@
 <li>option to have js compiled into theme-javascript</li>
 
 <li>use block-name frontend_tinectmatomno_paq in your index/index.tpl to extend "_paq"-variable</li>
+
+<li>combines multiple ordernumbers of one order into one position, so it will reported into Matomo correctly</li>
+
+<li>option to track all orders without tax</li>
+
 </ul>
 
 <h3 id="plannedfeatures">Planned Features</h3>
@@ -48,6 +53,19 @@
 <p>Feel free to fork and send <a href="https://github.com/tinect/TinectMatomo" target="_blank">pull requests</a>!</p>
         ]]>
     </description>
+
+    <changelog version="1.0.1">
+        <changes lang="de"><![CDATA[
+        - Kombinieren von mehrfachen Artikelnummern<br>
+        - Option damit nur Nettopreise getrackt werden<br>
+        - Variablen nach Matomo-Naming
+        ]]></changes>
+        <changes><![CDATA[
+        - combines multiple ordernumbers of one order into one position<br>
+        - option to track all orders without tax<br>
+        - renamed variables by matomo-naming
+        ]]></changes>
+    </changelog>
 
     <changelog version="1.0.0">
         <changes lang="de">Erstveröffentlichung</changes>

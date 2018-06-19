@@ -29,10 +29,11 @@
         {if {config name='ecommerce' namespace='TinectMatomo'}}
             {* ----- TRACKING ORDERS WITH ARTICLES ----- *}
             {if $sBasket.content && $sOrderNumber}
+
                 {if $sAmountWithTax}
-                    {assign var="sAmountTax" value=$sAmountWithTax|replace:",":"."}
+                    {assign var="grandTotal" value=$sAmountWithTax|replace:",":"."}
                 {else}
-                    {assign var="sAmountTax" value=$sAmount|replace:",":"."}
+                    {assign var="grandTotal" value=$sAmount|replace:",":"."}
                 {/if}
 
                 {if $sAmountNet}
@@ -41,11 +42,10 @@
                     {assign var="sAmountNumeric" value=$sAmount|replace:",":"."}
                 {/if}
 
-                {assign var="sAmountTax2" value=$sAmountTax-$sAmountNumeric}
-                {assign var="sAmountshipping1" value=$sShippingcosts|replace:",":"."}
-                {assign var="sAmountsubtotal" value=$sAmountTax-$sAmountshipping1}
+                {assign var="tax" value=$grandTotal-$sAmountNumeric}
+                {assign var="shipping" value=$sShippingcosts|replace:",":"."}
+                {assign var="subTotal" value=$grandTotal-$shipping}
 
-                {assign var="ordernumbers" value=[]}
                 {assign var="orderpositions" value=[]}
 
                 {*
@@ -89,16 +89,20 @@
                         '{$item.qty}'
                     ]);
 
-                    {$ordernumbers[] = {$sBasketItem.ordernumber|escape:'javascript'}}
-
                 {/foreach}
+
+                {if {config name='justecommercenet' namespace='TinectMatomo'}}
+                    {$grandTotal = $grandTotal - $tax}
+                    {$subTotal = $subTotal - $tax}
+                    {$tax = 0}
+                {/if}
 
                 _paq.push([
                     'trackEcommerceOrder',
                     '{$sOrderNumber}',
-                    '{$sAmountTax|round:2}',
+                    '{$grandTotal|round:2}',
                     '{$sAmountsubtotal|round:2}',
-                    '{$sAmountTax2|round:2}',
+                    '{$tax|round:2}',
                     '{$sShippingcosts|replace:',':'.'|round:2}',
                     false
                 ]);

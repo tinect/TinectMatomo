@@ -38,6 +38,15 @@
             <value>0</value>
         </element>
 
+        <element required="false" type="boolean" scope="shop">
+            <name>justecommercenet</name>
+            <label>Just TotalNetPrice</label>
+            <label lang="de">nur Gesamt-Nettopreise</label>
+            <value>0</value>
+            <description>All orders will be tracked without tax</description>
+            <description lang="de">Alle Bestellungen werden ohne Steuer getrackt</description>
+        </element>
+
         <element required="true" type="boolean" scope="locale">
             <name>compilejs</name>
             <label>Compile JS into Theme-JS</label>
