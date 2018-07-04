@@ -4,6 +4,13 @@
     "description": "using matomo-tracking in shopware",
     "license": "MIT",
     "type": "shopware-plugin",
+    "authors": [
+        {
+            "name": "tinect",
+            "homepage": "https://github.com/tinect",
+            "role": "Developer"
+        }
+    ],
     "extra": {
         "installer-name": "TinectMatomo"
     },
