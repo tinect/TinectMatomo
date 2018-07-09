@@ -28,7 +28,7 @@
 
         {if {config name='ecommerce' namespace='TinectMatomo'}}
             {* ----- TRACKING ORDERS WITH ARTICLES ----- *}
-            {if $sBasket.content && $sOrderNumber}
+            {if $sBasket.content}
 
                 {if $sAmountWithTax}
                     {assign var="grandTotal" value=$sAmountWithTax|replace:",":"."}
@@ -97,17 +97,24 @@
                     {$tax = 0}
                 {/if}
 
-                _paq.push([
-                    'trackEcommerceOrder',
-                    '{$sOrderNumber}',
-                    '{$grandTotal|round:2}',
-                    '{$subTotal|round:2}',
-                    '{$tax|round:2}',
-                    '{$sShippingcosts|replace:',':'.'|round:2}',
-                    false
-                ]);
-            {/if}
-        {/if}
+                {if $sOrderNumber}
+                    _paq.push([
+                        'trackEcommerceOrder',
+                        '{$sOrderNumber}',
+                        '{$grandTotal|round:2}',
+                        '{$subTotal|round:2}',
+                        '{$tax|round:2}',
+                        '{$sShippingcosts|replace:',':'.'|round:2}',
+                        false
+                    ]);
+                {else}
+                    _paq.push([
+                        'trackEcommerceCartUpdate',
+                        '{$grandTotal|round:2}'
+                    ]);
+                {/if}
+            {/if} //sBasket.content
+        {/if} //ecommerce
 
         {block name="frontend_tinectmatomno_paq"}
             {* Use this block to push data to _paq *}
