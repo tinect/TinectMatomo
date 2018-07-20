@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/config.xsd">
     <elements>
 
-        <element required="true" type="text" scope="shop">
+        <element required="true" type="text" scope="locale">
             <name>matomopath</name>
             <label>Path to Matomo-Installation</label>
             <label lang="de">Pfad zur Matomo-Installation</label>
@@ -11,7 +11,7 @@
             <description lang="de">z.B. https://matomo.org</description>
         </element>
 
-        <element required="true" type="text" scope="shop">
+        <element required="true" type="text" scope="locale">
             <name>jspath</name>
             <label>Relative Path to piwik.js</label>
             <label lang="de">Relativer Pfad zur piwik.js</label>
@@ -19,7 +19,7 @@
             <description>Please edit if you use proxy or something else which makes the file located to another address. f.e. proxy-analytics/js</description>
         </element>
 
-        <element required="true" type="text" scope="shop">
+        <element required="true" type="text" scope="locale">
             <name>phppath</name>
             <label>Relative Path to piwik.php</label>
             <label lang="de">Relativer Pfad zur piwik.php</label>
@@ -55,7 +55,7 @@
             <description>Instead of adding an additional JS-Load in Shop</description>
         </element>
 
-        <element required="false" type="text" scope="shop">
+        <element required="false" type="text" scope="locale">
             <name>apitoken</name>
             <label>API-Token</label>
         </element>
