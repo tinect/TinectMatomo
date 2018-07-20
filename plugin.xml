@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
 
     <label>TinectMatomo</label>
 
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <copyright>(c) by tinect</copyright>
     <license>MIT</license>
     <link>https://github.com/tinect/TinectMatomo</link>
