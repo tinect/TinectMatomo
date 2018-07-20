@@ -29,8 +29,27 @@ class TinectMatomo extends Plugin
     {
         return [
             'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onFrontendDispatch',
-            'Theme_Compiler_Collect_Plugin_Javascript' => 'onCollectJavascriptFiles'
+            'Theme_Compiler_Collect_Plugin_Javascript' => 'onCollectJavascriptFiles',
+            'Enlight_Controller_Action_PostDispatchSecure_Backend_Index' => 'onPostDispatchSecureBackendIndex'
         ];
+    }
+
+    public function onPostDispatchSecureBackendIndex(\Enlight_Controller_ActionEventArgs $args)
+    {
+        /** @var \Shopware_Controllers_Backend_Index $subject */
+        $subject = $args->getSubject();
+
+        $view = $subject->View();
+
+        $this->container->get('Template')->addTemplateDir(
+            $this->getPath() . '/Resources/Views/'
+        );
+
+        $config = Shopware()->Container()->get('shopware.plugin.config_reader')->getByPluginName('TinectMatomo');
+        $view->assign('MatomoPath', $config['matomopath']);
+
+        $args->getSubject()->View()->extendsTemplate('backend/matomo/index/header.tpl');
+
     }
 
     public function onCollectJavascriptFiles(\Enlight_Event_EventArgs $args)

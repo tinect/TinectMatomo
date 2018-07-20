@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/menu.xsd">
+
+        <entries>
+            <entry>
+                <name>Matomo</name>
+                <label lang="en">Matomo</label>
+                <label lang="de">Matomo</label>
+                <class>sprite-matomo</class>
+                <parent>Marketing</parent>
+                <onclick>openMatomo()</onclick>
+            </entry>
+        </entries>
+    </menu>
