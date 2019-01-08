@@ -12,7 +12,7 @@ install:
 - composer install
 script:
 - chmod +x ./build.sh
-- "./build.sh $TRAVIS_TAG $PLUGIN_NAME"
+- "./build.sh $TRAVIS_TAG"
 deploy:
   provider: releases
   api_key:
