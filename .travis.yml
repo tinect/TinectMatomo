@@ -1,0 +1,25 @@
+language: php
+php:
+- 7.2
+sudo: false
+env:
+  global:
+  - PLUGIN_NAME=TinectMatomo
+cache:
+  directories:
+  - "${HOME}/.composer/cache/files"
+install:
+- composer install
+script:
+- chmod +x ./build.sh
+- "./build.sh $TRAVIS_TAG"
+deploy:
+  provider: releases
+  api_key:
+    secure: D6oYWnlfFPdW+k5mzzjIi9mF3IJu0I2R5aVYHS8j9jj5NqaeZarxbINbalyF+JazYeu6DxZ7AVmU2PVrdxODOdZdCuWfdJ7eyZySj7iHwnFr0ORpCGZZKanAX0chqjruOmaygGmsf0iiko2sO3p0JGdagI3Qac+QYs1A+0Bhl0/vFc7czI/K2qLJgFmQIbmamQQWvadBAc3Y7foOyG7ewDKn6AEqcxQl/O3UKH0sA8HHL+PDmw1v2DvJiEPSUwv0kjL52Q23gCjWOlbbv5N8s3gH4VXl2353WkcEs2BS8g56tlQDW5+NojyEPSnDuGvujHvenmbT32thxqdnSIuFX/+h3WQMDbgw681B78a+dlBWJ4O/RdwLcyYH6uMg5e8uvsDH0GEGUxQeMBYOu+y/voOotZ+y3m0OgzqC0PJL7KHph0FT8uc4kL2Up82JOZ996fgmOEwQ2j8oy8RBZkSemdAr59QqPd2UdXPHbnOd+c5LzA14WtCIEetEAMR1rMdyRL1u1E/PIw7hJwTFYa0Imqv5CTsBgtrSWVD1VCrmENzxzbYPipO6o0zYUGJnHTnq9BL+EMcYky8h8eH95Z7tE3GkhB1ReZVgG3NsWv36VXpBfRe2btLCxFWfQ1HLdwHykPm+L5ObYQjeznbzbsEQ6tEnkmeCxc90pd+8sB19rfU=
+  file_glob: true
+  file: TinectMatomo*.zip
+  skip_cleanup: true
+  on:
+    repo: tinect/TinectMatomo
+    tags: true
