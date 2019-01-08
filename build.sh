@@ -9,11 +9,11 @@ if [ -z ${commit} ]; then
 fi
 
 # Remove old release
-rm -rf TinectMatomo TinectMatomo-*.zip
+rm -rf $PLUGIN_NAME $PLUGIN_NAME-*.zip
 
 # Build new release
-mkdir -p TinectMatomo
-git archive ${commit} | tar -x -C TinectMatomo
-composer install --no-dev -n -o -d TinectMatomo
-( find ./TinectMatomo -type d -name ".git" && find ./TinectMatomo -name ".gitignore" && find ./TinectMatomo -name ".gitmodules" ) | xargs rm -r
-zip -r TinectMatomo-${commit}.zip TinectMatomo
+mkdir -p $PLUGIN_NAME
+git archive ${commit} | tar -x -C $PLUGIN_NAME
+composer install --no-dev -n -o -d $PLUGIN_NAME
+( find ./$PLUGIN_NAME -type d -name ".git" && find ./$PLUGIN_NAME -name ".gitignore" && find ./$PLUGIN_NAME -name ".gitmodules" ) | xargs rm -r
+zip -r $PLUGIN_NAME-${commit}.zip $PLUGIN_NAME
