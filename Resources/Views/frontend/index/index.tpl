@@ -3,7 +3,7 @@
 {block name="frontend_index_header_javascript_tracking"}
     {$smarty.block.parent}
 
-    <script async>
+    <script>
         var _paq = _paq || [];
 
         {* ----- TRACKING DETAIL ----- *}
@@ -113,8 +113,8 @@
                         '{$grandTotal|round:2}'
                     ]);
                 {/if}
-            {/if} //sBasket.content
-        {/if} //ecommerce
+            {/if} {* sBasket.content *}
+        {/if} {* ecommerce *}
 
         {block name="frontend_tinectmatomno_paq"}
             {* Use this block to push data to _paq *}
