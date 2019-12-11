@@ -2,7 +2,7 @@
 
 {block name='frontend_index_header_meta_tags'}
     {$smarty.block.parent}
-    <link rel="dns-prefetch" href="{config name='matomopath' namespace='TinectMatomo'}">
+    <link rel="preconnect" href="{config name='matomopath' namespace='TinectMatomo'}">
 {/block}
 
 {block name="frontend_index_header_javascript_tracking"}
