@@ -2,7 +2,7 @@
 
 ## Description
 
-This plugin for Shopware connects your shop to Matomo (formerly Piwik).
+This plugin for Shopware 5 connects your shop to Matomo (formerly Piwik).
 
 ### Features
 
